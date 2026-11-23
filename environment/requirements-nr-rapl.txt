@@ -1,0 +1,18 @@
+# Do not list torch/torchvision here: conda supplies their CUDA-compatible
+# builds from NR_RAPL-cu117.yml.
+numpy==1.23.5
+pillow==9.5.0
+pandas==1.5.3
+scikit-learn==1.2.2
+timm==0.6.13
+rich==13.7.1
+colorlog==6.8.2
+tqdm==4.66.2
+nltk==3.8.1
+PyYAML==6.0.1
+ftfy==6.1.1
+regex==2023.12.25
+# OpenAI CLIP is required by RAPL/vlprompt/RAPL.py. Git is supplied by
+# the conda environment, and this command is intentionally network-dependent
+# only during environment creation.
+git+https://github.com/openai/CLIP.git
