@@ -73,11 +73,13 @@ Table 1: Comparison of ID Top-1 accuracy with SOTA prompt learning approaches ac
 
 
 
+
 ## ImageNet Out-of-Distribution Detection Results (ViT-B/16, 16 shots)
 
 <img width="1375" alt="OOD Detection Results" src="https://raw.githubusercontent.com/k861608585-spec/RAPL/main/image.png" />
 
 Table 2: Comparison of OOD detection performance with SOTA approaches across four OOD datasets. We report FPR95↓ and AUC↑. Lower FPR95 and higher AUC indicate better OOD detection.
+
 
 
 
