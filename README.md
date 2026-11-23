@@ -63,11 +63,15 @@ We provide training scripts in the scripts folder. For instance, to launch the t
 ```bash
 ./scripts/run_nr_RAPL_full.sh
 ```
-## Few-shots classification results (ViT-B/16, 16 shots)
-<img width="1368" height="397" alt="image" src="https://github.com/user-attachments/assets/ac4013f4-575d-4bd3-b02e-2985feed816e" />
+
+
+## Few-shot Classification Results (ViT-B/16, 16 shots)
+
+<img width="1368" alt="ID Top-1 Classification Results" src="./scripts/image.png" />
+
 Table 1: Comparison of ID Top-1 accuracy with SOTA prompt learning approaches across benchmark datasets.
 
-## Imagenet out-of-detection results (ViT-B/16, 16 shots)
+
 
 ## ImageNet Out-of-Distribution Detection Results (ViT-B/16, 16 shots)
 
