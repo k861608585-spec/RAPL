@@ -68,9 +68,13 @@ We provide training scripts in the scripts folder. For instance, to launch the t
 Table 1: Comparison of ID Top-1 accuracy with SOTA prompt learning approaches across benchmark datasets.
 
 ## Imagenet out-of-detection results (ViT-B/16, 16 shots)
-<img width="1375" height="807" alt="image" src="https://github.com/user-attachments/assets/45053ce7-b389-4ba8-829e-5894f0681302" />
-Table 2: Comparison of OOD detection performance with SOTA approaches across four OOD datasets. We report FPR95↓ and
-AUC↑. Lower FPR95 and higher AUC indicate better OOD detection.
+
+## ImageNet Out-of-Distribution Detection Results (ViT-B/16, 16 shots)
+
+<img width="1375" alt="OOD Detection Results" src="https://raw.githubusercontent.com/k861608585-spec/RAPL/main/image.png" />
+
+Table 2: Comparison of OOD detection performance with SOTA approaches across four OOD datasets. We report FPR95↓ and AUC↑. Lower FPR95 and higher AUC indicate better OOD detection.
+
 
 
 
