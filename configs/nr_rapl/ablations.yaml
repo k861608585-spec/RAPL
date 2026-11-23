@@ -1,0 +1,28 @@
+# Declarative record of the profiles implemented by scripts/run_NR_RAPL_ablation.sh.
+# RAPL itself uses argparse, so the script passes these values explicitly and
+# writes the resolved configuration to each experiment_config.json.
+shared:
+  seed: 1
+  backbone: clip_vit_b16
+  global_prompts: 4
+  local_prompts: 4
+  local_scales: [10, 20, 30, 40]
+  keep_original_local_loss: true
+profiles:
+  A: {name: RAPL_baseline, method: RAPL, guided_crop: false, neg_prompt: false, neg_loss: false, div_loss: false, score: GL_MCM}
+  B: {name: guided_random_crop, method: NR_RAPL, guided_crop: true, margin_selection: true, neg_prompt: false, neg_loss: false, div_loss: false, score: GL_MCM}
+  C: {name: negative_prompts, method: NR_RAPL, guided_crop: true, margin_selection: true, neg_prompt: true, neg_loss: false, div_loss: false, score: GL_MCM}
+  D: {name: negative_regional_loss, method: NR_RAPL, guided_crop: true, margin_selection: true, neg_prompt: true, neg_loss: true, div_loss: false, score: GL_MCM}
+  E: {name: diversity_loss, method: NR_RAPL, guided_crop: true, margin_selection: true, neg_prompt: true, neg_loss: false, div_loss: true, score: GL_MCM}
+  F: {name: full_regional_glmcm, method: NR_RAPL, guided_crop: true, margin_selection: true, neg_prompt: true, neg_loss: true, div_loss: true, score: GL_MCM}
+  G: {name: full_NR_RAPL, method: NR_RAPL, guided_crop: true, margin_selection: true, neg_prompt: true, neg_loss: true, div_loss: true, score: NR_GLMCM}
+sweeps:
+  neg_prompt_num: [50, 100, 200, 300]
+  crop_num_candidates: [4, 8, 16]
+  crop_num_negative: [1, 2, 4]
+  lambda_neg: [0.25, 0.5, 1.0, 2.0]
+  lambda_div: [0.0, 0.01, 0.05, 0.1]
+  # The launcher matches num_local_prompts to each list length and trains a
+  # matching Stage-1 checkpoint before every local-scale variant.
+  local_scales: [[10], [10, 20], [10, 20, 30, 40]]
+  ood_score: [MCM, GL_MCM, REGIONAL_MCM_NO_NEG, NR_GLMCM]

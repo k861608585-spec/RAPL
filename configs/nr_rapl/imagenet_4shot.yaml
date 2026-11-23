@@ -1,0 +1,19 @@
+method:
+  name: NR_RAPL
+dataset:
+  name: imagenet
+  num_shots: 4
+model:
+  clip_name: clip_vit_b16
+  global_prompts: 4
+  local_prompts: 4
+  local_scales: [10, 20, 30, 40]
+  prompt_dropout: 0.75
+NR_RAPL:
+  stage1: {epochs: 50}
+  stage2: {epochs: 30, train_stage: regional}
+  stage3: {epochs: 8, train_stage: joint, global_lr_multiplier: 0.1}
+  crop: {candidates: 8, positive: 1, negative: 1, selection: margin}
+  negative_prompt: {num: 100, init: random, template: object}
+  loss: {lambda_pos: 1.0, lambda_neg: 1.0, lambda_div: 0.05, neg_warmup_epochs: 5, keep_original_local_loss: true}
+  ood_score: {type: NR_GLMCM, neg_denom_weight: 1.0, local_weight: 1.0}
