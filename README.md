@@ -61,7 +61,7 @@ $DATA_FOLDER/
 ## Training
 We provide training scripts in the scripts folder. For instance, to launch the training on Imagenet with the ViT-B/16 backbone and with 16 shots do:
 ```bash
-./scripts/run_imagenet.sh
+./scripts/run_nr_RAPL_full.sh
 ```
 ## Few-shots classification results (ViT-B/16, 16 shots)
 <img width="1368" height="397" alt="image" src="https://github.com/user-attachments/assets/ac4013f4-575d-4bd3-b02e-2985feed816e" />
